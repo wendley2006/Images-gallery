@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="tabbed-nav">
+        <div class="tab active" data-target="tab-1">Tab 1</div>
+        <div class="tab" data-target="tab-2">Tab 2</div>
+        <div class="tab" data-target="tab-3">Tab 3</div>
+        <div class="tab" data-target="tab-4">Tab 4</div>
+     </div>
+     <div id="tabbed-content">
+        <div id="tab-1" class="images active">
+           <img src="https://picsum.photos/id/110/200/300" alt="image 1">
+           <img src="https://picsum.photos/id/156/200/300" alt="image 2">
+           <img src="https://picsum.photos/id/10/200/300" alt="image 3">
+           <img src="https://picsum.photos/id/110/200/300" alt="image 1">
+        </div>
+        <div id="tab-2" class="images">
+           <img src="https://picsum.photos/id/114/200/300" alt="image 1">
+           <img src="https://picsum.photos/id/158/200/300" alt="image 2">
+           <img src="https://picsum.photos/id/100/200/300" alt="image 3">
+           <img src="https://picsum.photos/id/110/200/300" alt="image 1">
+        </div>
+        <div id="tab-3" class="images">
+           <img src="https://picsum.photos/id/12/200/300" alt="image 1">
+           <img src="https://picsum.photos/id/15/200/300" alt="image 2">
+           <img src="https://picsum.photos/id/107/200/300" alt="image 3">
+           <img src="https://picsum.photos/id/110/200/300" alt="image 1">
+        </div>
+     </div>
+
+     <div id="tab-4" class="images">
+        <img src="https://picsum.photos/id/200/300" alt="">
+     </div>
+     <script>      
+        // JavaScript to handle tabbed navigation
+        const tabs = document.querySelectorAll('.tab');
+        const images = document.querySelectorAll('.images');
+        tabs.forEach(tab => {
+           tab.addEventListener('click', () => {
+              
+              // Remove active class from all tabs
+              tabs.forEach(tab => tab.classList.remove('active'));
+              
+              // Add active class to clicked tab
+              tab.classList.add('active');
+              
+              // Hide all image galleries
+              images.forEach(image => image.classList.remove('active'));
+              
+              // Show image gallery associated with clicked tab
+              const target = tab.getAttribute('data-target');
+              document.getElementById(target).classList.add('active');
+           });
+        });
+     </script>
+
+</body>
+</html>
